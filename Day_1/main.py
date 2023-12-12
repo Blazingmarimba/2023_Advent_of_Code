@@ -1,4 +1,3 @@
-import sys
 import argparse
 
 digitNames = {"one": "1", "two": "2", "three": "3",
@@ -18,10 +17,6 @@ def getDigit(line: str, from_front: bool, count_word=False) -> str:
                 if found_index >= 0 and found_index < word_index:
                     word_index = found_index
                     word = digitNames[digit]
-
-        # for index in range (0, word_index):
-        #     if line[index].isdigit():
-        #         return line[index]
 
     else:
         starting_index = len(line) - 1
@@ -67,23 +62,10 @@ def main():
             # Find last digit
             last_digit = getDigit(line, False, args.w)
 
-            # # Find first numeric charactor
-            # index = 0
-            # while not line[index].isdigit():
-            #     index += 1
-            # first_digit = line[index]
-
-            # # Find last numeric charactor
-            # index = len(line) - 1
-            # while not line[index].isdigit():
-            #     index -= 1
-            # last_digit = line[index]
-
             # Combine the digits and add to the running sum
             sum += int(first_digit + last_digit)
 
     print(f"Sum of numbers is {sum}")
-            
 
 
 if __name__ == "__main__":
